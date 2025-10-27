@@ -10,7 +10,7 @@ public class Produto {
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "SQ_PRODUTOS"
+            generator = "SEQ_PRODUTOS"
     )
     @SequenceGenerator(
             name="SEQ_PRODUTOS",
