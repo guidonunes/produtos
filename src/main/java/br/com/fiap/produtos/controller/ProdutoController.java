@@ -10,36 +10,36 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/produtos")
 public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
 
-    @PostMapping("/produtos")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Produto salvar(@RequestBody Produto produto){
         return produtoService.salvar(produto);
     }
 
-    @GetMapping("produtos/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Produto buscarPorId(@PathVariable Long id){
         return produtoService.buscarPorId(id);
     }
 
-    @GetMapping("/produtos")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Produto> buscarTodos(){
         return produtoService.buscarTodos();
     }
 
-    @DeleteMapping("/produtos/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluir(@PathVariable Long id){
         produtoService.excluir(id);
     }
 
-    @PutMapping("/produtos{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Produto atualizar(@PathVariable Long id, @RequestBody Produto produto){
         return produtoService.atualizar(id, produto);
